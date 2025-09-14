@@ -10,12 +10,16 @@ resource "aws_db_instance" "mysql" {
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   publicly_accessible    = true
   skip_final_snapshot    = true
+  tags = {
+    Environment = "dev"
+    Owner       = "terraform-test"
+  }
 }
 
 
 resource "aws_db_instance" "postgresql" {
   identifier             = "my-postgres-db"
-  allocated_storage      = 20
+  allocated_storage      = 40
   engine                 = "postgres"
   engine_version         = "15"
   instance_class         = "db.t3.micro"
@@ -25,4 +29,5 @@ resource "aws_db_instance" "postgresql" {
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   publicly_accessible    = true
   skip_final_snapshot    = true
+
 }
