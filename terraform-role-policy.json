@@ -1,0 +1,18 @@
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "RDSAndSecretsAndS3AndDynamo",
+"Effect": "Allow",
+"Action": [
+"rds:*",
+"ec2:Describe*",
+"secretsmanager:*",
+"s3:*",
+"dynamodb:*",
+"iam:PassRole"
+],
+"Resource": "*"
+}
+]
+}
